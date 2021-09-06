@@ -19,7 +19,7 @@ class EmployeeList : AppCompatActivity() {
 
         supportActionBar?.title = "Employee List"
 
-        var viewModel = ViewModelProvider(
+        val viewModel = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory(this.application)
         )[EmployeeViewModel::class.java]
