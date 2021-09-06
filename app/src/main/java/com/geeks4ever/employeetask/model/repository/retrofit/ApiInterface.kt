@@ -12,7 +12,7 @@ interface ApiInterface {
 
     companion object {
 
-        private const val BASE_URL = "https://jsonplaceholder.typicode.com/"
+        private const val BASE_URL = "https://jsonplaceholder.typicode.com"
 
         fun create() : ApiInterface {
 
@@ -26,10 +26,10 @@ interface ApiInterface {
 
     }
 
-    @GET("users")
+    @GET("/users")
     fun getEmployees(): Call<List<EmployeeConvertorModel>>
 
-    @GET("users/{id}")
+    @GET("/users/{id}")
     fun getEmployeeDetails(@Path("id") id: Int?): Call<EmployeeDetailsConvertorModel>
 
 

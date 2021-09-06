@@ -17,7 +17,7 @@ class EmployeeDetail : AppCompatActivity() {
         var id = 1
         id = intent.extras?.get("id") as Int
 
-        var viewModel = ViewModelProvider(
+        val viewModel = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory(this.application)
         )[EmployeeViewModel::class.java]

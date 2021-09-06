@@ -1,6 +1,8 @@
 package com.geeks4ever.employeetask.viewmodel
 
 import android.app.Application
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.geeks4ever.employeetask.model.repository.EmployeeConvertorModel
@@ -22,7 +24,7 @@ class EmployeeViewModel(application: Application) : AndroidViewModel(application
                 employeeList.postValue(response.body())
             }
             override fun onFailure(call: Call<List<EmployeeConvertorModel>>, t: Throwable) {
-
+                Log.e(TAG, "onFailure: ",t )
             }
         })
     }
@@ -35,6 +37,8 @@ class EmployeeViewModel(application: Application) : AndroidViewModel(application
             }
 
             override fun onFailure(call: Call<EmployeeDetailsConvertorModel>, t: Throwable) {
+
+                Log.e(TAG, "onFailure: ",t )
             }
         })
     }
