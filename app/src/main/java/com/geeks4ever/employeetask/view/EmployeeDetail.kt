@@ -29,7 +29,7 @@ class EmployeeDetail : AppCompatActivity() {
             employeeDetailPageId.text = "Employee Id: " + it.employeeId.toString()
             employeeDetailPageName.text = "Name: " + it.name.toString()
             employeeDetailPageEmail.text = "Email: " + it.email.toString()
-            employeeDetailPageAddress.text = "Address: \n" + it.address .toString()
+            employeeDetailPageAddress.text = "Address: \n${it.address.suite}, ${it.address.street},\n${it.address.city}, ${it.address.zipcode}"
             employeeDetailPagePhone.text = "Phone Number " + it.phone.toString()
             employeeDetailCompanyName.text = "Company Name: " + it.companyName.name
             employeeDetailPageCompanyWebsite.text = "Website: " + it.companyWebsite.toString()
