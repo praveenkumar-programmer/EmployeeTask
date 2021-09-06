@@ -3,8 +3,8 @@ package com.geeks4ever.employeetask.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.geeks4ever.employeetask.model.EmployeeDetailModel
-import com.geeks4ever.employeetask.model.EmployeeModel
+import com.geeks4ever.employeetask.model.repository.EmployeeConvertorModel
+import com.geeks4ever.employeetask.model.repository.EmployeeDetailsConvertorModel
 import com.geeks4ever.employeetask.model.repository.repositoty
 import retrofit2.Call
 import retrofit2.Callback
@@ -12,16 +12,16 @@ import retrofit2.Response
 
 class EmployeeViewModel(application: Application) : AndroidViewModel(application) {
 
-    val employeeList = MutableLiveData<List<EmployeeModel>>()
-    val employeeDetail = MutableLiveData<EmployeeDetailModel>()
+    val employeeList = MutableLiveData<List<EmployeeConvertorModel>>()
+    val employeeDetail = MutableLiveData<EmployeeDetailsConvertorModel>()
 
     fun getAllEmployees() {
         val response = repositoty.getAllEmployees()
-        response.enqueue(object : Callback<List<EmployeeModel>> {
-            override fun onResponse(call: Call<List<EmployeeModel>>, response: Response<List<EmployeeModel>>) {
+        response.enqueue(object : Callback<List<EmployeeConvertorModel>> {
+            override fun onResponse(call: Call<List<EmployeeConvertorModel>>, response: Response<List<EmployeeConvertorModel>>) {
                 employeeList.postValue(response.body())
             }
-            override fun onFailure(call: Call<List<EmployeeModel>>, t: Throwable) {
+            override fun onFailure(call: Call<List<EmployeeConvertorModel>>, t: Throwable) {
 
             }
         })
@@ -29,12 +29,12 @@ class EmployeeViewModel(application: Application) : AndroidViewModel(application
 
     fun getEmployeeDetails(id: Int) {
         val response = repositoty.getEmployeeDetails(id)
-        response.enqueue(object : Callback<EmployeeDetailModel> {
-            override fun onResponse(call: Call<EmployeeDetailModel>, response: Response<EmployeeDetailModel>) {
+        response.enqueue(object : Callback<EmployeeDetailsConvertorModel> {
+            override fun onResponse(call: Call<EmployeeDetailsConvertorModel>, response: Response<EmployeeDetailsConvertorModel>) {
                 employeeDetail.postValue(response.body())
             }
 
-            override fun onFailure(call: Call<EmployeeDetailModel>, t: Throwable) {
+            override fun onFailure(call: Call<EmployeeDetailsConvertorModel>, t: Throwable) {
             }
         })
     }

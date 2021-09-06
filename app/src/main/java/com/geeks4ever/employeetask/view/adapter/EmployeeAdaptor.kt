@@ -6,14 +6,14 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.geeks4ever.employeetask.R
-import com.geeks4ever.employeetask.model.EmployeeModel
+import com.geeks4ever.employeetask.model.repository.EmployeeConvertorModel
 import com.geeks4ever.employeetask.view.EmployeeDetail
 import com.google.android.material.textview.MaterialTextView
 
 
 class EmployeeAdaptor: RecyclerView.Adapter<EmployeeViewHolder>() {
 
-    var employees = mutableListOf<EmployeeModel>()
+    var employees = mutableListOf<EmployeeConvertorModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmployeeViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -21,7 +21,7 @@ class EmployeeAdaptor: RecyclerView.Adapter<EmployeeViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: EmployeeViewHolder, position: Int) {
-        val employee: EmployeeModel = employees[position]
+        val employee: EmployeeConvertorModel = employees[position]
         holder.bind(employee)
     }
 
@@ -42,7 +42,7 @@ class EmployeeViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         employeeRoot = itemView.findViewById(R.id.root)
     }
 
-    fun bind(employee : EmployeeModel) {
+    fun bind(employee : EmployeeConvertorModel) {
         employeeName?.text = employee.name
         employeeEmail?.text = employee.email
         employeeRoot?.setOnClickListener{

@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.geeks4ever.employeetask.R
-import com.geeks4ever.employeetask.model.EmployeeModel
+import com.geeks4ever.employeetask.model.repository.EmployeeConvertorModel
 import com.geeks4ever.employeetask.view.adapter.EmployeeAdaptor
 import com.geeks4ever.employeetask.viewmodel.EmployeeViewModel
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,7 +27,7 @@ class EmployeeList : AppCompatActivity() {
         viewModel.getAllEmployees()
 
         viewModel.employeeList.observeForever {
-            adapter.employees = it as MutableList<EmployeeModel>
+            adapter.employees = it as MutableList<EmployeeConvertorModel>
             adapter.notifyDataSetChanged()
         }
 

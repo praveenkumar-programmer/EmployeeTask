@@ -1,7 +1,7 @@
 package com.geeks4ever.employeetask.model.repository.retrofit
 
-import com.geeks4ever.employeetask.model.EmployeeDetailModel
-import com.geeks4ever.employeetask.model.EmployeeModel
+import com.geeks4ever.employeetask.model.repository.EmployeeConvertorModel
+import com.geeks4ever.employeetask.model.repository.EmployeeDetailsConvertorModel
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -27,10 +27,10 @@ interface ApiInterface {
     }
 
     @GET("users")
-    fun getEmployees(): Call<List<EmployeeModel>>
+    fun getEmployees(): Call<List<EmployeeConvertorModel>>
 
     @GET("users/{id}")
-    fun getEmployeeDetails(@Path("id") id: Int?): Call<EmployeeDetailModel>
+    fun getEmployeeDetails(@Path("id") id: Int?): Call<EmployeeDetailsConvertorModel>
 
 
 
